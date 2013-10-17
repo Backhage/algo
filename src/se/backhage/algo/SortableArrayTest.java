@@ -67,5 +67,4 @@ public class SortableArrayTest {
     			new Object[]{new MergesortArray(ARRAY_SIZE)},
     			new Object[]{new QuicksortArray(ARRAY_SIZE)});
     }
-
 }
