@@ -62,7 +62,7 @@ public class SortableArrayTest {
 	}
 
 	@Parameterized.Parameters
-    public static Collection<Object[]> instancesToTest() {
+	public static Collection<Object[]> instancesToTest() {
     	return Arrays.asList(
     			new Object[]{new MergesortArray(ARRAY_SIZE)},
     			new Object[]{new QuicksortArray(ARRAY_SIZE)});
