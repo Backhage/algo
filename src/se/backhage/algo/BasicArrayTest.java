@@ -3,9 +3,7 @@ package se.backhage.algo;
 import org.junit.*;
 import static org.junit.Assert.*;
 
-
 public class BasicArrayTest {
-	
 	private final int ARRAY_SIZE = 100000;
 	private BasicArray basicArray;
 	
@@ -31,5 +29,4 @@ public class BasicArrayTest {
 		basicArray.set(lastIndex, 42);
 		assertEquals(42, basicArray.get(lastIndex));
 	}
-
 }

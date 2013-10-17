@@ -1,17 +1,19 @@
 package se.backhage.algo;
 
-import java.util.Random;
-
 import static org.junit.Assert.*;
-import org.junit.*;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
 
-public class QuicksortArrayTest {
-	private final int ARRAY_SIZE = 100000;
+import java.util.*;
+
+@RunWith(Parameterized.class)
+public class SortableArrayTest {
+	private static final int ARRAY_SIZE = 100000;
 	private SortableArray sortableArray;
 	
-	@Before
-	public void setUp() {
-		sortableArray = new QuicksortArray(ARRAY_SIZE);
+	public SortableArrayTest(SortableArray sortableArray) {
+		this.sortableArray = sortableArray;
 	}
 	
 	@Test
@@ -32,6 +34,7 @@ public class QuicksortArrayTest {
 	}
 	
 	private void assertSetAndGet(int index) {
+		sortableArray.set(index, 0);
 		assertEquals(0, sortableArray.get(index));
 		final int TEST_VALUE = 42;
 		sortableArray.set(index, TEST_VALUE);
@@ -57,4 +60,12 @@ public class QuicksortArrayTest {
 			assertTrue(sortableArray.get(i - 1) <= sortableArray.get(i));
 		}
 	}
+
+	@Parameterized.Parameters
+    public static Collection<Object[]> instancesToTest() {
+    	return Arrays.asList(
+    			new Object[]{new MergesortArray(ARRAY_SIZE)},
+    			new Object[]{new QuicksortArray(ARRAY_SIZE)});
+    }
+
 }
