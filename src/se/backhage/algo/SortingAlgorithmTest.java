@@ -1,11 +1,23 @@
 package se.backhage.algo;
 
 import static org.junit.Assert.*;
-import org.junit.Test;
 
+import java.util.Arrays;
+import java.util.Collection;
 import java.util.Random;
 
-public class QuickSortTest {
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
+
+@RunWith(Parameterized.class)
+public class SortingAlgorithmTest {
+    private SortingAlgorithm sortingAlgorithm;
+
+    public SortingAlgorithmTest(SortingAlgorithm sortingAlgorithm) {
+        this.sortingAlgorithm = sortingAlgorithm;
+    }
+
     @Test
     public void sortArrayWithEvenNumberOfElements() {
         randomizeSortAndCheckArrayWithLength(2);
@@ -23,7 +35,7 @@ public class QuickSortTest {
 
     private void randomizeSortAndCheckArrayWithLength(int length) {
         int[] testArray = createRandomizedArray(length);
-        QuickSort.sort(testArray, 0, length - 1);
+        sortingAlgorithm.sort(testArray, 0, length - 1);
         assertTestArrayIsSorted(testArray); 
     }
 
@@ -40,5 +52,12 @@ public class QuickSortTest {
         for (int i = 1; i < arrayToTest.length; ++i) {
             assertTrue(arrayToTest[i - 1] <= arrayToTest[i]);
         }
+    }
+
+    @Parameterized.Parameters
+    public static Collection<Object[]> instancesToTest() {
+        return Arrays.asList(
+                new Object[]{new QuickSort()},
+                new Object[]{new MergeSort()});
     }
 }

@@ -1,7 +1,7 @@
 package se.backhage.algo;
 
-public final class QuickSort {
-    public static void sort(int[] toSort, int minIndex, int maxIndex) {
+public final class QuickSort implements SortingAlgorithm {
+    public void sort(int[] toSort, int minIndex, int maxIndex) {
         int incIndex = minIndex;
         int decIndex = maxIndex;
         int pivotValue = toSort[(minIndex + maxIndex) / 2];
@@ -26,7 +26,7 @@ public final class QuickSort {
         }
     }
 
-    private static void swap(int[] array, int firstIndex, int secondIndex) {
+    private void swap(int[] array, int firstIndex, int secondIndex) {
         int tmp = array[firstIndex];
         array[firstIndex] = array[secondIndex];
         array[secondIndex] = tmp;
