@@ -35,7 +35,7 @@ public class SortingAlgorithmTest {
 
     private void randomizeSortAndCheckArrayWithLength(int length) {
         int[] testArray = createRandomizedArray(length);
-        sortingAlgorithm.sort(testArray, 0, length - 1);
+        sortingAlgorithm.sort(testArray);
         assertTestArrayIsSorted(testArray); 
     }
 

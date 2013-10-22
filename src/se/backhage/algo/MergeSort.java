@@ -3,7 +3,7 @@ package se.backhage.algo;
 public class MergeSort implements SortingAlgorithm {
     private int[] mergeSortArray;
 
-    public void sort(int[] toSort, int minIndex, int maxIndex) {
+    public void sort(int[] toSort) {
         mergeSortArray = new int[toSort.length];
         mergeSort(toSort, 0, toSort.length - 1);
     }
